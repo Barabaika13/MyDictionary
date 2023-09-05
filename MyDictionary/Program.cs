@@ -17,12 +17,10 @@
             myDict.Add(-23, "minus twenty three");
 
             myDict[35] = "Hello";
-            string value1 = myDict[35];
-            Console.WriteLine(value1);
+            string value1 = myDict[35];            
             myDict[65] = "Привет";
-            string value2 = myDict[65];
-            Console.WriteLine(value2);
-            myDict[129] = "129";
+            string value2 = myDict[65];            
+            myDict[129] = "One hundred twenty nine";
             string value3 = myDict[129];
 
             myDict.Get(31);
