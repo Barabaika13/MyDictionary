@@ -2,7 +2,12 @@
 {
     internal class OtusDictionary
     {
-        private KVPair[] _myArray = new KVPair[32];
+        private KVPair[] _myArray;
+        public OtusDictionary() 
+        {
+            _myArray = new KVPair[32];
+        }
+
         private class KVPair
         {
             public int Key { get; }
@@ -48,6 +53,7 @@
                 }
             }
         }
+
         public void CreateBiggerArray(int key, string value)
         {
             int newLength = _myArray.Length * 2;
