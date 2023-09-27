@@ -10,8 +10,8 @@
 
         private class KVPair
         {
-            public int Key { get; }
-            public string Value { get; }
+            public int Key { get; set; }
+            public string Value { get; set; }
 
             public KVPair(int key, string value)
             {
@@ -47,6 +47,10 @@
                 {
                     _myArray[index] = new KVPair(key, value);
                 }
+                else if (_myArray[index].Key == key)
+                {
+                    Console.WriteLine("В словаре уже содержится элемент с таким ключом");
+                }
                 else
                 {
                     CreateBiggerArray(key, value);
@@ -68,9 +72,15 @@
                 }
             }
             int newIndex = Math.Abs(key % newLength);
-            _myArray[newIndex] = new KVPair(key, value);
+            if (_myArray[newIndex] != null)
+            {
+                CreateBiggerArray(key, value);
+            }
+            else
+            {
+                _myArray[newIndex] = new KVPair(key, value);
+            }
         }
-
         public string Get(int key)
         {
             int index = Math.Abs(key % _myArray.Length);
